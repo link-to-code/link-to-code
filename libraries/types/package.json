@@ -1,0 +1,16 @@
+{
+  "name": "@link-to-code/types",
+  "version": "1.0.0",
+  "description": "Common types tp be used across projects",
+  "private": true,
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "~4.8.4"
+  }
+}
