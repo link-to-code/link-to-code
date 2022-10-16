@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
-    "build": "tsc",
-    "build:watch": "tsc --watch",
-    "serve": "npm run build && firebase emulators:start --only functions,firestore,storage",
+    "build": "tsc --clean",
+    "build:watch": "tsc",
+    "emulator:start": "firebase emulators:start --only functions,firestore,storage",
+    "serve": "concurrently \"npm:build:watch\" \"npm:emulator:start\"",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
@@ -28,7 +29,9 @@
     "firebase-functions-test": "^0.2.0",
     "typescript": "^4.5.4",
     "@firebase/app-types": "~0.7.0",
-    "eslint-config-prettier": "~8.5.0"
+    "eslint-config-prettier": "~8.5.0",
+    "@link-to-code/types": "workspace:*",
+    "concurrently": "~7.4.0"
   },
   "private": true
 }

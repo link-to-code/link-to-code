@@ -5,7 +5,8 @@
   "private": true,
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc --clean",
+    "build:watch": "tsc"
   },
   "keywords": [],
   "author": "",
