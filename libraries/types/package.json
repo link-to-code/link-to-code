@@ -5,13 +5,38 @@
   "private": true,
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "tsc --clean",
-    "build:watch": "tsc"
+    "build:zod": "ts-to-zod -k ./src/index.ts ./src/validators/index.ts",
+    "build": "pnpm run build:zod && tsc --clean",
+    "build:watch": "pnpm run build:zod && tsc"
+  },
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "require": "./lib/index.js",
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    },
+    "./validators": {
+      "default": "./lib/validators/index.js",
+      "require": "./lib/validators/index.js",
+      "import": "./lib/validators/index.js",
+      "types": "./lib/validators/index.d.ts"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "~4.8.4"
+    "typescript": "~4.8.4",
+    "ts-to-zod": "~1.13.1",
+    "zod": "~3.19.1"
+  },
+  "peerDependencies": {
+    "zod": "^3.19.1"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
   }
 }
