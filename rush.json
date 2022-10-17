@@ -472,6 +472,11 @@
       "tags": ["types"]
     },
     {
+      "packageName": "@link-to-code/domain",
+      "projectFolder": "libraries/domain",
+      "tags": ["domain"]
+    },
+    {
       "packageName": "@link-to-code/functions",
       "projectFolder": "apps/functions",
       "reviewCategory": "production",

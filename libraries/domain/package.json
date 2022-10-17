@@ -1,0 +1,29 @@
+{
+  "name": "@link-to-code/domain",
+  "version": "1.0.0",
+  "description": "Common domain functionalities, entities and business logic, such as validation and data manipulation",
+  "private": true,
+  "types": "./lib/index.d.ts",
+  "main": "./lib/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsc --clean",
+    "build:watch": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "~4.8.4",
+    "@link-to-code/types": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-config-prettier": "~8.5.0",
+    "concurrently": "~7.4.0"
+  },
+  "dependencies": {
+    "zod": "~3.19.1"
+  }
+}
