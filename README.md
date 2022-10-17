@@ -19,6 +19,6 @@ Note: Open JDK is used to run `firebase-tools` locally. Remember to follow the i
 Start the functions package by doing the following:
 
 - On one terminal, run `rush build:watch`
-- In another terminal, run `cd ./app/functions && rushx emulation:start`
-- To run the front end, open another terminal and run `cd ./app/web && rushx start`
+- In another terminal, run `cd ./apps/functions && rushx emulator:start`
+- To run the front end, open another terminal and run `cd ./apps/main && rushx start`
 
