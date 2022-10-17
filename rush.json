@@ -483,10 +483,10 @@
       "tags": ["functions"]
     },
     {
-      "packageName": "@link-to-code/main",
-      "projectFolder": "apps/main",
+      "packageName": "@link-to-code/web",
+      "projectFolder": "apps/web",
       "reviewCategory": "production",
-      "tags": ["main"]
+      "tags": ["web"]
     }
   ]
 }

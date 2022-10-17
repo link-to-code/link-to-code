@@ -20,5 +20,5 @@ Start the functions package by doing the following:
 
 - On one terminal, run `rush build:watch`
 - In another terminal, run `cd ./app/functions && rushx emulation:start`
-- To run the front end, open another terminal and run `cd ./app/main && rushx start`
+- To run the front end, open another terminal and run `cd ./app/web && rushx start`
 
