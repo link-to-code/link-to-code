@@ -50,3 +50,10 @@ export interface CodingExercise {
    */
   entry: File["filename"];
 }
+
+export interface CodingExerciseWithId extends CodingExercise {
+  /**
+   * The id of a created coding exercise
+   */
+  id?: string;
+}

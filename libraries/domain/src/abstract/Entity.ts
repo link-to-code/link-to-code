@@ -1,5 +1,5 @@
 export default abstract class Entity<TData> {
-  private data?: TData = undefined;
+  protected data?: TData = undefined;
 
   constructor(data: TData, validation = true) {
     this.set(data, validation);

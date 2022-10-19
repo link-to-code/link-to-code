@@ -10,6 +10,7 @@ importers:
       '@firebase/app-types': ~0.7.0
       '@link-to-code/domain': workspace:*
       '@link-to-code/types': workspace:*
+      '@types/express': ~4.17.14
       '@typescript-eslint/eslint-plugin': ^5.12.0
       '@typescript-eslint/parser': ^5.12.0
       concurrently: ~7.4.0
@@ -30,6 +31,7 @@ importers:
     devDependencies:
       '@firebase/app-types': 0.7.0
       '@link-to-code/types': link:../../libraries/types
+      '@types/express': 4.17.14
       '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
       '@typescript-eslint/parser': 5.40.1_z4bbprzjrhnsfa24uvmcbu7f5q
       concurrently: 7.4.0
