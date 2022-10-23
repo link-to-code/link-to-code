@@ -19,7 +19,7 @@ interface ResponseBody {
 }
 
 const requestBodySchema = z.object({
-  codingExercise: codingExerciseSchema.strict(),
+  codingExercise: codingExerciseSchema.omit({ id: true }).strict(),
 });
 
 export const createCodingExercise = functions.https.onRequest(
