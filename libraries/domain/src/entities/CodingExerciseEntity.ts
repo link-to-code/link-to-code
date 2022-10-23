@@ -1,15 +1,33 @@
-import type { CodingExercise, CodingExerciseWithId } from "@link-to-code/types";
+import type { CodingExercise } from "@link-to-code/types";
 
-import Entity from "../abstract/Entity";
+import { createEntityFactory } from "../core";
 import DataConsistencyError from "../errors/DataConsistencyError";
 
-export class CodingExerciseEntity extends Entity<CodingExercise | CodingExerciseWithId> {
-  validate() {
-    const { files, entry } = this.data || {};
+const createCodingExerciseEntity = createEntityFactory(
+  ({
+    id,
+    name,
+    files,
+    entry,
+  }: {
+    id?: CodingExercise["id"];
+    name: CodingExercise["name"];
+    files: CodingExercise["files"];
+    entry: CodingExercise["entry"];
+  }): CodingExercise => {
     if (files?.length && !files.some(({ filename }) => filename === entry)) {
       throw new DataConsistencyError(
         `Entry "${entry}" does not match any element in the list of provided files.`
       );
     }
+
+    return {
+      id,
+      name,
+      files,
+      entry,
+    };
   }
-}
+);
+
+export { createCodingExerciseEntity };

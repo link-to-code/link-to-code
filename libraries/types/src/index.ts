@@ -36,6 +36,11 @@ export interface File {
  */
 export interface CodingExercise {
   /**
+   * The id of a created coding exercise
+   */
+  id?: string;
+
+  /**
    * The name of the exercise (will be displayed in the UI as is).
    */
   name: string;
@@ -49,11 +54,4 @@ export interface CodingExercise {
    * Specify whether the file is the entry point of the coding exercise.
    */
   entry: File["filename"];
-}
-
-export interface CodingExerciseWithId extends CodingExercise {
-  /**
-   * The id of a created coding exercise
-   */
-  id?: string;
 }
