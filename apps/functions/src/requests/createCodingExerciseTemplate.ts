@@ -7,6 +7,7 @@ import { z } from "zod";
 import type { CodingExercise } from "@link-to-code/types";
 import { codingExerciseSchema } from "@link-to-code/types/validators";
 
+import { checkAuth } from "../auth/checkAuth";
 import createCodingExerciseTemplateService from "../services/createCodingExerciseTemplateService";
 import { validateRequestBody, handleError } from "../utils/index";
 
@@ -25,6 +26,7 @@ const requestBodySchema = z.object({
 export const createCodingExerciseTemplate = functions.https.onRequest(
   async (request: Request<unknown, unknown, RequestBody>, response: Response<ResponseBody>) => {
     try {
+      checkAuth(request);
       validateRequestBody(request.body, requestBodySchema);
 
       const permalink = await createCodingExerciseTemplateService(request.body.codingExercise);
