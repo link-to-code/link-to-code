@@ -1,2 +1,2 @@
 export * from "./ping";
-export * from "./createCodingExercise";
+export * from "./createCodingExerciseTemplate";

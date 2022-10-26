@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import omit from "lodash.omit";
 import pick from "lodash.pick";
+import cloneDeepWith from "lodash.cloneDeepWith";
 
 import type { DeepReadonly } from "../types/DeepReadonly";
 
@@ -28,50 +28,83 @@ function createEntityFactory<F extends (...args: never[]) => unknown>(factory: F
   };
 }
 
-function isEntity<T>(entity: Entity<T>): boolean {
-  return !!entity[EntityRef];
-}
-
 /**
- * Translate an entity to a plain object.
+ * Checks if a provided object is an entity.
  * @param entity
- * @param transform Transforms the entity before returning the raw version. Changes must be made in an immutable way.
- * @returns Returns a plain mutable object.
+ * @returns Returns true if the object is an entity, otherwise false.
  */
-function toRaw<T>(entity: Entity<T>, transform: (entity: Entity<T>) => Entity<T> = (e) => e): T {
-  const { [EntityRef]: ref, ...entityData } = transform(entity);
-
-  return entityData as T;
+function isEntity<T>(entity: unknown): entity is Entity<T> {
+  return !!entity && typeof entity === "object" && !!(EntityRef in entity);
 }
 
 /**
- * Translate an entity to a plain object, removing keys within the `omitKeys` param.
+ * Internally used by `toRaw` to remove readonly and Entity type in a recursive way and return a plain object.
+ * Only useful for `recursiveUnwrap` option.
+ */
+type DeepUnwrapEntity<T> = T extends ReadonlyArray<infer R>
+  ? DeepUnwrapEntityArray<R>
+  : // eslint-disable-next-line @typescript-eslint/ban-types
+  T extends Function
+  ? T
+  : T extends object
+  ? DeepUnwrapEntityObject<T>
+  : T;
+
+type DeepUnwrapEntityArray<T> = Array<DeepUnwrapEntity<T>>;
+
+type DeepUnwrapEntityObject<T> = Omit<
+  {
+    -readonly [P in keyof T]: DeepUnwrapEntity<T[P]>;
+  },
+  typeof EntityRef
+>;
+
+/**
+ * Recursively translates an entity to a plain object.
+ * @param entity
+ * @param recursiveUnwrap If true recursively removes entities recursively
+ * @returns Returns a deep clone of the entity as a plain mutable object.
+ */
+function toRaw<T>(entity: Entity<T>, recursiveUnwrap: true): DeepUnwrapEntity<Entity<T>>;
+function toRaw<T>(entity: Entity<T>, recursiveUnwrap?: false): T;
+function toRaw<T>(entity: Entity<T>, recursiveUnwrap = false): T | DeepUnwrapEntity<Entity<T>> {
+  const { [EntityRef]: ref, ...entityData } = entity;
+
+  if (recursiveUnwrap) {
+    return cloneDeepWith(entityData, (value) => {
+      if (isEntity(value)) {
+        return toRaw(value);
+      }
+    }) as DeepUnwrapEntity<Entity<T>>;
+  }
+
+  return cloneDeepWith(entityData) as T;
+}
+
+/**
+ * Creates a new entity off the provided one, omitting specific keys within the `omitKeys` param.
  * @param entity
  * @param omitKeys
- * @returns Returns a plain mutable object.
+ * @returns Returns a new entity (it's not a deep clone).
  */
-function toRawOmit<T extends object | null | undefined, K extends keyof T>(
+function toOmit<T extends object | null | undefined, K extends keyof T>(
   entity: Entity<T>,
   omitKeys: K[] = []
-): Omit<T, K> {
-  const entityData = toRaw(entity);
-
-  return omit(entityData, ...omitKeys) as Omit<T, K>;
+): Entity<Omit<T, K>> {
+  return omit(entity, ...omitKeys) as unknown as Entity<Omit<T, K>>;
 }
 
 /**
- * Translate an entity to a plain object, picking only the keys within the `pickKeys` param.
+ * Creates a new entity off the provided one, picking specific keys within the `pickKeys` param.
  * @param entity
  * @param pickKeys
- * @returns Returns a plain mutable object.
+ * @returns Returns a new entity (it's not a deep clone).
  */
-function toRawPick<T extends object | null | undefined, K extends keyof T>(
+function toPick<T extends object | null | undefined, K extends keyof T>(
   entity: Entity<T>,
   pickKeys: K[] = []
-): Pick<T, K> {
-  const entityData = toRaw(entity);
-
-  return pick(entityData, ...pickKeys) as Pick<T, K>;
+): Entity<Pick<T, K>> {
+  return pick(entity, ...pickKeys) as unknown as Entity<Pick<T, K>>;
 }
 
-export { createEntityFactory, isEntity, toRaw, toRawOmit, toRawPick };
+export { createEntityFactory, isEntity, toRaw, toOmit, toPick };
