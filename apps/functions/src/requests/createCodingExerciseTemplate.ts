@@ -7,7 +7,7 @@ import { z } from "zod";
 import type { CodingExercise } from "@link-to-code/types";
 import { codingExerciseSchema } from "@link-to-code/types/validators";
 
-import createCodingExerciseService from "../services/createCodingExerciseService";
+import createCodingExerciseTemplateService from "../services/createCodingExerciseTemplateService";
 import { validateRequestBody, handleError } from "../utils/index";
 
 interface RequestBody {
@@ -19,15 +19,15 @@ interface ResponseBody {
 }
 
 const requestBodySchema = z.object({
-  codingExercise: codingExerciseSchema.omit({ id: true }).strict(),
+  codingExercise: codingExerciseSchema.strict(),
 });
 
-export const createCodingExercise = functions.https.onRequest(
+export const createCodingExerciseTemplate = functions.https.onRequest(
   async (request: Request<unknown, unknown, RequestBody>, response: Response<ResponseBody>) => {
     try {
       validateRequestBody(request.body, requestBodySchema);
 
-      const permalink = await createCodingExerciseService(request.body.codingExercise);
+      const permalink = await createCodingExerciseTemplateService(request.body.codingExercise);
 
       response.json({ permalink });
     } catch (error) {

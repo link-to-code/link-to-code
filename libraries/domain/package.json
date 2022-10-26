@@ -23,11 +23,13 @@
     "eslint-config-prettier": "~8.5.0",
     "concurrently": "~7.4.0",
     "@types/lodash.omit": "~4.5.7",
-    "@types/lodash.pick": "~4.4.7"
+    "@types/lodash.pick": "~4.4.7",
+    "@types/lodash.clonedeepwith": "~4.5.7"
   },
   "dependencies": {
     "zod": "~3.19.1",
     "lodash.omit": "~4.5.0",
-    "lodash.pick": "~4.4.0"
+    "lodash.pick": "~4.4.0",
+    "lodash.clonedeepwith": "~4.5.0"
   }
 }

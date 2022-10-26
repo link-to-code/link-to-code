@@ -90,6 +90,7 @@ importers:
   ../../libraries/domain:
     specifiers:
       '@link-to-code/types': workspace:*
+      '@types/lodash.clonedeepwith': ~4.5.7
       '@types/lodash.omit': ~4.5.7
       '@types/lodash.pick': ~4.4.7
       '@typescript-eslint/eslint-plugin': ^5.12.0
@@ -98,16 +99,19 @@ importers:
       eslint: ^8.9.0
       eslint-config-prettier: ~8.5.0
       eslint-plugin-import: ^2.25.4
+      lodash.clonedeepwith: ~4.5.0
       lodash.omit: ~4.5.0
       lodash.pick: ~4.4.0
       typescript: ~4.8.4
       zod: ~3.19.1
     dependencies:
+      lodash.clonedeepwith: 4.5.0
       lodash.omit: 4.5.0
       lodash.pick: 4.4.0
       zod: 3.19.1
     devDependencies:
       '@link-to-code/types': link:../types
+      '@types/lodash.clonedeepwith': 4.5.7
       '@types/lodash.omit': 4.5.7
       '@types/lodash.pick': 4.4.7
       '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
@@ -2721,6 +2725,12 @@ packages:
     resolution: {integrity: sha512-272FMnFGzAVMGtu9tkr29hRL6bZj4Zs1KZNeHLnKqAvp06tAIcarTMwOh8/8bz4FmKRcMxZhZNeUAQsNLoiPhg==}
     dependencies:
       '@types/node': 18.7.23
+
+  /@types/lodash.clonedeepwith/4.5.7:
+    resolution: {integrity: sha512-QPCMby+Glpme6mv/ds4YUSP06bD0FdRVzYF9NjfAP/cKFyjj3BV8bDodx1Npqf/M979WNds1r6K1I7cFwBTmWA==}
+    dependencies:
+      '@types/lodash': 4.14.186
+    dev: true
 
   /@types/lodash.omit/4.5.7:
     resolution: {integrity: sha512-6q6cNg0tQ6oTWjSM+BcYMBhan54P/gLqBldG4AuXd3nKr0oeVekWNS4VrNEu3BhCSDXtGapi7zjhnna0s03KpA==}
@@ -7396,6 +7406,10 @@ packages:
 
   /lodash.clonedeep/4.5.0:
     resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
+
+  /lodash.clonedeepwith/4.5.0:
+    resolution: {integrity: sha512-QRBRSxhbtsX1nc0baxSkkK5WlVTTm/s48DSukcGcWZwIyI8Zz+lB+kFiELJXtzfH4Aj6kMWQ1VWW4U5uUDgZMA==}
+    dev: false
 
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}

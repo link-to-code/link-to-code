@@ -36,11 +36,6 @@ export interface File {
  */
 export interface CodingExercise {
   /**
-   * The id of a created coding exercise
-   */
-  id?: string;
-
-  /**
    * The name of the exercise (will be displayed in the UI as is).
    */
   name: string;
@@ -54,4 +49,22 @@ export interface CodingExercise {
    * Specify whether the file is the entry point of the coding exercise.
    */
   entry: File["filename"];
+}
+
+/**
+ * The CodingExerciseTemplate interface represents a coding exercise to be used as atemplate.
+ *
+ * An interview room will fork a coding exervise template by cloning it's coding exercise data,
+ * preserving the template as immutable in time, no matter how many interview rooms are created.
+ */
+export interface CodingExerciseTemplate {
+  /**
+   * The id of a created coding exercise template
+   */
+  id?: string;
+
+  /**
+   * The coding exercise
+   */
+  codingExercise: CodingExercise;
 }

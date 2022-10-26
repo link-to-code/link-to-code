@@ -1,5 +1,4 @@
-import { Entity, toRawOmit } from "@link-to-code/domain";
-import { CodingExercise } from "@link-to-code/types";
+import { CodingExerciseTemplateEntity, Entity, toOmit, toRaw } from "@link-to-code/domain";
 
 import db from "../firebase/db";
 
@@ -10,13 +9,15 @@ export default class CodingExercisesRepository {
   /**
    * This method adds a coding exercise to the coding-exercises collection
    *
-   * @param {Entity<CodingExercise>} codingExerciseEntity
+   * @param {Entity<CodingExerciseTemplateEntity>} codingExerciseTemplateEntity
    * @return {Promise<string>} Returns the id of the added coding exercise
    */
-  public static async createCodingExercise(codingExerciseEntity: Entity<CodingExercise>): Promise<string> {
-    const codingExerciseData = toRawOmit(codingExerciseEntity, ["id"]);
+  public static async createCodingExerciseTemplate(
+    codingExerciseTemplateEntity: Entity<CodingExerciseTemplateEntity>
+  ): Promise<string> {
+    const codingExerciseTemplateData = toRaw(toOmit(codingExerciseTemplateEntity, ["id"]), true);
 
-    const res = await db.collection("coding-exercises").add(codingExerciseData);
+    const res = await db.collection("coding-exercise-templates").add(codingExerciseTemplateData);
     return res.id;
   }
 }
