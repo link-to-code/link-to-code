@@ -8,7 +8,7 @@ import type { CodingExercise } from "@link-to-code/types";
 import { codingExerciseSchema } from "@link-to-code/types/validators";
 
 import { checkAuth } from "../auth/checkAuth";
-import createCodingExerciseTemplateService from "../services/createCodingExerciseTemplateService";
+import { createCodingExerciseTemplateService } from "../services/createCodingExerciseTemplateService";
 import { validateRequestBody, handleError } from "../utils/index";
 
 interface RequestBody {
