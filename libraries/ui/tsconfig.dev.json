@@ -1,0 +1,3 @@
+{
+  "include": [".eslintrc.js", "postcss.config.js", "tailwind.config.js", "config/*.js"]
+}
