@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "jsx": "react",
+    "module": "ESNext",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": false,
+    "target": "es2017",
+    "esModuleInterop": true,
+    "declarationMap": true,
+    "declaration": true,
+  },
+  "compileOnSave": true,
+  "include": [
+    "@types",
+    "src",
+    "stories"
+  ]
+}

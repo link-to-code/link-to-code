@@ -483,6 +483,11 @@
       "tags": ["functions"]
     },
     {
+      "packageName": "@link-to-code/ui",
+      "projectFolder": "libraries/ui",
+      "tags": ["ui"]
+    },
+    {
       "packageName": "@link-to-code/web",
       "projectFolder": "apps/web",
       "reviewCategory": "production",
