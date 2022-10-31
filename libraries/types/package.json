@@ -6,8 +6,8 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build:zod": "ts-to-zod -k ./src/index.ts ./src/validators/index.ts",
-    "build": "pnpm run build:zod && tsc --clean",
-    "build:watch": "pnpm run build:zod && tsc"
+    "build": "pnpm run build:zod && tsc --build --clean && tsc",
+    "build:watch": "pnpm run build"
   },
   "exports": {
     ".": {
