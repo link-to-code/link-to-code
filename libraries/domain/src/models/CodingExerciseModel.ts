@@ -6,7 +6,7 @@ import DataConsistencyError from "../errors/DataConsistencyError";
 export type CodingExerciseModel = CodingExercise;
 
 const createCodingExerciseModel = createModelFactory(
-  ({ name, files, entry }: CodingExerciseModel): CodingExerciseModel => {
+  ({ name, description = "", files, entry }: CodingExerciseModel): CodingExerciseModel => {
     if (files?.length && !files.some(({ filename }) => filename === entry)) {
       throw new DataConsistencyError(
         `Entry "${entry}" does not match any element in the list of provided files.`
@@ -15,6 +15,7 @@ const createCodingExerciseModel = createModelFactory(
 
     return {
       name,
+      description,
       files,
       entry,
     };

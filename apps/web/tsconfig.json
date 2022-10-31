@@ -8,10 +8,12 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2017",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "Node16"
   },
   "compileOnSave": true,
   "include": [
-    "src"
+    "src",
+    "@types"
   ]
 }

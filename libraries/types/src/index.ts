@@ -41,6 +41,11 @@ export interface CodingExercise {
   name: string;
 
   /**
+   * The descrioption of the exercise (will be displayed in the UI as is).
+   */
+  description?: string;
+
+  /**
    * The list of files for this test.
    */
   files: File[];

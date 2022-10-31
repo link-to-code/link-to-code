@@ -6,7 +6,17 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "firebase": "~9.13.0",
+    "react-router-dom": "~6.4.2",
+    "clsx": "~1.2.1",
+    "@tailwindcss/typography": "~0.5.7",
+    "daisyui": "~2.36.1",
+    "tailwindcss": "~3.2.1",
+    "@link-to-code/ui": "workspace:*",
+    "@link-to-code/types": "workspace:*",
+    "@tanstack/react-query": "~4.13.5",
+    "@heroicons/react": "~2.0.12"
   },
   "scripts": {
     "serve": "pnpm run build && firebase emulators:start --only hosting",
@@ -47,12 +57,14 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "~29.0.1",
     "@types/node": "~18.7.16",
-    "@types/react": "~18.0.19",
-    "@types/react-dom": "~18.0.6",
+    "@types/react": "~18.0.24",
+    "@types/react-dom": "~18.0.8",
     "@types/testing-library__jest-dom": "~5.14.5",
     "eslint": "~8.23.0",
     "typescript": "~4.8.3",
     "eslint-config-react-app": "~7.0.1",
-    "eslint-config-prettier": "~8.5.0"
+    "eslint-config-prettier": "~8.5.0",
+    "autoprefixer": "~10.4.13",
+    "postcss": "~8.4.18"
   }
 }
