@@ -1,0 +1,16 @@
+.root[data-size="small"] {
+  height: 30px;
+}
+.root[data-size="medium"] {
+  height: 60px;
+}
+.root[data-size="large"] {
+  height: 120px;
+}
+
+.root[data-color="light"] {
+  color: #f3f0ff;
+}
+.root[data-color="dark"] {
+  color: #0f0e14;
+}

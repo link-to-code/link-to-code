@@ -1,0 +1,28 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { Logo, LogoSize } from "../src";
+
+<Meta title="Logo" />
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    {() => (
+      <div data-theme>
+        <Logo />
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## Small
+
+<Canvas>
+  <Story name="Small">
+    {() => (
+      <div data-theme>
+        <Logo size={LogoSize.small} />
+      </div>
+    )}
+  </Story>
+</Canvas>
