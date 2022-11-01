@@ -1,7 +1,7 @@
 import type { Request } from "express";
 import * as functions from "firebase-functions";
 
-import { AuthError } from "./AuthError";
+import { AuthError } from "../utils/errors";
 import { decodeBearerToken, extractTokenFromHeader } from "./utils";
 
 import { getFromEnv } from "../config";

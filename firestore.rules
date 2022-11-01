@@ -9,5 +9,15 @@ service cloud.firestore {
       allow write, list, delete: if false;
       allow get: if true;
     }
+
+    match /interview-rooms/{document=**} {
+      allow list, delete: if false;
+      allow write, get: if true;
+    }
+
+    match /interview-room-admin-spaces/{document=**} {
+      allow write, list, delete: if false;
+      allow get: if true;
+    }
   }
 }

@@ -73,3 +73,37 @@ export interface CodingExerciseTemplate {
    */
   codingExercise: CodingExercise;
 }
+
+/**
+ * The InterviewRoom interface represents the room used to conduct an interview.
+ *
+ * It's a fork of a coding exervise template with all its data to be used within the editor.
+ * Anything within an interview room will be visible to all users in the room.
+ */
+export interface InterviewRoom {
+  /**
+   * The id of the interview room
+   */
+  id?: string;
+
+  /**
+   * The coding exercise
+   */
+  codingExercise: CodingExercise;
+}
+
+/**
+ * The InterviewRoomAdminSpace interface represents a space where admins
+ * can collect and see admin only data for an interview.
+ */
+export interface InterviewRoomAdminSpace {
+  /**
+   * The id of the interview room admin space
+   */
+  id?: string;
+
+  /**
+   * The id of a referenced interview room
+   */
+  interviewRoomId: string;
+}
