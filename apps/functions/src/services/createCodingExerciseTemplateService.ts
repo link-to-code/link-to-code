@@ -1,7 +1,7 @@
 import { createCodingExerciseModel, createCodingExerciseTemplateModel } from "@link-to-code/domain";
 import type { CodingExercise } from "@link-to-code/types";
 
-import { CodingExercisesRepository } from "../repositories/CodingExercisesRepository";
+import { CodingExerciseTemplatesRepository } from "../repositories";
 
 /**
  * This service returns a new coding exercise creation link given a CodingExercise object.
@@ -14,6 +14,8 @@ export async function createCodingExerciseTemplateService(codingExercise: Coding
     codingExercise: codingExerciseModel,
   });
 
-  const id = await CodingExercisesRepository.createCodingExerciseTemplate(codingExerciseTemplateModel);
+  const id = await CodingExerciseTemplatesRepository.createCodingExerciseTemplate(
+    codingExerciseTemplateModel
+  );
   return `/coding-exercise-template/${id}`;
 }

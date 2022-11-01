@@ -10,14 +10,17 @@ importers:
       '@firebase/app-types': ~0.7.0
       '@link-to-code/domain': workspace:*
       '@link-to-code/types': workspace:*
+      '@types/cors': ~2.8.12
       '@types/express': ~4.17.14
       '@typescript-eslint/eslint-plugin': ^5.12.0
       '@typescript-eslint/parser': ^5.12.0
       concurrently: ~7.4.0
+      cors: ~2.8.5
       eslint: ^8.9.0
       eslint-config-google: ^0.14.0
       eslint-config-prettier: ~8.5.0
       eslint-plugin-import: ^2.25.4
+      express: ~4.18.2
       firebase-admin: ^10.0.2
       firebase-functions: ^3.18.0
       firebase-functions-test: ^0.2.0
@@ -25,12 +28,15 @@ importers:
       zod: ~3.19.1
     dependencies:
       '@link-to-code/domain': link:../../libraries/domain
+      cors: 2.8.5
+      express: 4.18.2
       firebase-admin: 10.3.0_@firebase+app-types@0.7.0
       firebase-functions: 3.24.1_firebase-admin@10.3.0
       zod: 3.19.1
     devDependencies:
       '@firebase/app-types': 0.7.0
       '@link-to-code/types': link:../../libraries/types
+      '@types/cors': 2.8.12
       '@types/express': 4.17.14
       '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
       '@typescript-eslint/parser': 5.40.1_z4bbprzjrhnsfa24uvmcbu7f5q

@@ -1,8 +1,12 @@
 import * as functions from "firebase-functions";
+import { Request, Response, Router } from "express";
 
-// https://firebase.google.com/docs/functions/typescript
+// eslint-disable-next-line new-cap
+const router = Router();
 
-export const ping = functions.https.onRequest((request, response) => {
+router.get("/", (_request: Request, response: Response) => {
   functions.logger.info("Ping");
   response.send("Ping");
 });
+
+export default router;

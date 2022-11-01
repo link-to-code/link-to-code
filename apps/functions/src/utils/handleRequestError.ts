@@ -4,7 +4,7 @@ import { ZodError } from "zod";
 
 import DataConsistencyError from "@link-to-code/domain/lib/errors/DataConsistencyError";
 
-import { AuthError } from "../auth";
+import { AuthError, NotFoundError } from "./errors";
 
 /**
  * This function handles the response in case of errors
@@ -12,7 +12,7 @@ import { AuthError } from "../auth";
  * @param {unknown} error An error
  * @param {Response} res The response object
  */
-export default function handleError(error: unknown, res: Response): void {
+export default function handleRequestError(error: unknown, res: Response): void {
   functions.logger.error(error);
 
   if (error instanceof ZodError || error instanceof DataConsistencyError) {
@@ -25,6 +25,14 @@ export default function handleError(error: unknown, res: Response): void {
 
   if (error instanceof AuthError) {
     res.status(401).json({
+      error: error.message,
+    });
+
+    return;
+  }
+
+  if (error instanceof NotFoundError) {
+    res.status(404).json({
       error: error.message,
     });
 
