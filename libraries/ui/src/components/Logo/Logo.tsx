@@ -15,8 +15,8 @@ export enum LogoColor {
 }
 
 export interface LogoProps {
-  color?: LogoColor;
-  size?: LogoSize;
+  color?: keyof typeof LogoColor;
+  size?: keyof typeof LogoSize;
   className?: ClassValue[] | ClassValue;
 }
 

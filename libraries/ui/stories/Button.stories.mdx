@@ -1,0 +1,43 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { ShieldExclamationIcon } from "@heroicons/react/24/outline";
+import { Button } from "../src";
+
+<Meta title="Button" component={Button} />
+
+export const Template = (args) => (
+  <div data-theme>
+    <Button {...args}>Click me</Button>
+  </div>
+);
+
+## Default
+
+<Canvas>
+  <Story name="Default">{Template.bind({})}</Story>
+</Canvas>
+
+## LeftIcon
+
+<Canvas>
+  <Story
+    name="LeftIcon"
+    args={{
+      leftIcon: <ShieldExclamationIcon />,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## RightIcon
+
+<Canvas>
+  <Story
+    name="RightIcon"
+    args={{
+      rightIcon: <ShieldExclamationIcon />,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
