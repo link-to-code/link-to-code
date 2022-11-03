@@ -1,3 +1,4 @@
 export * from "./Button";
-export * from "./Logo";
 export * from "./CodingExerciseCard";
+export * from "./Dialog";
+export * from "./Logo";

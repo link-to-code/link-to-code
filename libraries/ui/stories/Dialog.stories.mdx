@@ -1,0 +1,135 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { ShieldExclamationIcon } from "@heroicons/react/24/outline";
+
+import {
+  Button,
+  Dialog,
+  DialogTrigger,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogActions,
+  DialogCancelButton,
+} from "../src";
+
+<Meta title="Dialog" />
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    {() => (
+      <div data-theme>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button>Open me</Button>
+          </DialogTrigger>
+          <DialogContent className="container">
+            <DialogHeader>
+              <DialogTitle>
+                <h1>Garlic bread with cheese: What the science tells us</h1>
+              </DialogTitle>
+              <DialogClose />
+            </DialogHeader>
+            <DialogDescription>
+              For years parents have espoused the health benefits of eating garlic bread with cheese to their
+              children, with the food earning such an iconic status in our culture that kids will often dress
+              up as warm, cheesy loaf for Halloween.
+            </DialogDescription>
+          </DialogContent>
+        </Dialog>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## No Close Button
+
+<Canvas>
+  <Story name="No Close Button">
+    {() => (
+      <div data-theme>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button>Open me</Button>
+          </DialogTrigger>
+          <DialogContent className="container">
+            <DialogHeader>
+              <DialogTitle>
+                <h1>Garlic bread with cheese: What the science tells us</h1>
+              </DialogTitle>
+            </DialogHeader>
+            <DialogDescription>
+              For years parents have espoused the health benefits of eating garlic bread with cheese to their
+              children, with the food earning such an iconic status in our culture that kids will often dress
+              up as warm, cheesy loaf for Halloween.
+            </DialogDescription>
+          </DialogContent>
+        </Dialog>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## No Title
+
+<Canvas>
+  <Story name="No Title">
+    {() => (
+      <div data-theme>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button>Open me</Button>
+          </DialogTrigger>
+          <DialogContent className="container">
+            <DialogHeader>
+              <DialogClose />
+            </DialogHeader>
+            <DialogDescription>
+              For years parents have espoused the health benefits of eating garlic bread with cheese to their
+              children, with the food earning such an iconic status in our culture that kids will often dress
+              up as warm, cheesy loaf for Halloween.
+            </DialogDescription>
+          </DialogContent>
+        </Dialog>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## With Actions
+
+<Canvas>
+  <Story name="With Actions">
+    {() => (
+      <div data-theme>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button>Open me</Button>
+          </DialogTrigger>
+          <DialogContent className="container">
+            <DialogHeader>
+              <DialogTitle>
+                <h1>Garlic bread with cheese: What the science tells us</h1>
+              </DialogTitle>
+              <DialogClose />
+            </DialogHeader>
+            <DialogDescription>
+              For years parents have espoused the health benefits of eating garlic bread with cheese to their
+              children, with the food earning such an iconic status in our culture that kids will often dress
+              up as warm, cheesy loaf for Halloween.
+            </DialogDescription>
+            <DialogActions>
+              <DialogCancelButton />
+              <Button type="primary" autoFocus>
+                Do it!
+              </Button>
+            </DialogActions>
+          </DialogContent>
+        </Dialog>
+      </div>
+    )}
+  </Story>
+</Canvas>
