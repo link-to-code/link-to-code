@@ -20,10 +20,12 @@ export interface LogoProps {
   className?: ClassValue[] | ClassValue;
 }
 
-const Logo: React.FC<LogoProps> = ({ size = LogoSize.medium, color = LogoColor.light, className = "" }) => {
+export const Logo: React.FC<LogoProps> = ({
+  size = LogoSize.medium,
+  color = LogoColor.light,
+  className = "",
+}) => {
   return (
     <LogoSvg title="Logo" data-size={size} data-color={color} className={clsx(styles.root, className)} />
   );
 };
-
-export default Logo;
