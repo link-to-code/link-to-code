@@ -1,0 +1,47 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { ShieldExclamationIcon } from "@heroicons/react/24/outline";
+import { Checkbox } from "../src";
+
+<Meta title="Checkbox" component={Checkbox} argTypes={{ onCheckedChange: { action: "changed" } }} />
+
+export const Template = (args) => (
+  <div data-theme>
+    <Checkbox {...args} />
+  </div>
+);
+
+## Default
+
+<Canvas>
+  <Story name="Default">{Template.bind({})}</Story>
+</Canvas>
+
+## In a form
+
+<Canvas>
+  <Story name="In a form">
+    {(args) => (
+      <div data-theme>
+        <form>
+          <Checkbox {...args} />
+        </form>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## Disabled state
+
+<Canvas>
+  <Story name="Disabled state">
+    {(args) => (
+      <div data-theme>
+        <form>
+          <Checkbox {...args} checked disabled />
+          <br />
+          <Checkbox {...args} disabled />
+        </form>
+      </div>
+    )}
+  </Story>
+</Canvas>
