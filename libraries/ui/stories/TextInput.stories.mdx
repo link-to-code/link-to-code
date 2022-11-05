@@ -1,0 +1,62 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { ShieldExclamationIcon } from "@heroicons/react/24/outline";
+import { TextInput, FormControl, Link, Button, Tooltip } from "../src";
+
+<Meta title="TextInput" component={TextInput} argTypes={{ onChange: { action: "changed" } }} />
+
+export const Template = (args) => (
+  <div data-theme>
+    <TextInput {...args} />
+  </div>
+);
+
+## Default
+
+<Canvas>
+  <Story name="Default">{Template.bind({})}</Story>
+</Canvas>
+
+## In a form
+
+<Canvas>
+  <Story name="In a form">
+    {(args) => (
+      <div data-theme>
+        <FormControl text="This is a label" alt="Copy me!" input={<TextInput {...args} />} />
+        <FormControl
+          text="This has a link"
+          alt={<Link href="#">Link me!</Link>}
+          input={<TextInput {...args} />}
+        />
+        <FormControl
+          text="This has even a button"
+          alt={
+            <Tooltip position="left" tip="Copied!">
+              <Button type="secondary" size="xs">
+                Copy me!
+              </Button>
+            </Tooltip>
+          }
+          input={<TextInput readOnly value="Something to remember me by." {...args} />}
+        />
+        <FormControl
+          text="With some links below"
+          bottomText="Naaaah"
+          input={<TextInput placeholder="Write here" {...args} />}
+        />
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## Disabled state
+
+<Canvas>
+  <Story name="Disabled state">
+    {(args) => (
+      <div data-theme>
+        <TextInput {...args} disabled />
+      </div>
+    )}
+  </Story>
+</Canvas>

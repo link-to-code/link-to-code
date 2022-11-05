@@ -1,0 +1,19 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { ShieldExclamationIcon } from "@heroicons/react/24/outline";
+import { Tooltip, TextInput } from "../src";
+
+<Meta title="Tooltip" component={Tooltip} />
+
+export const Template = (args) => (
+  <div data-theme>
+    <Tooltip tip="This is a tip" {...args}>
+      <TextInput value="Text..." />
+    </Tooltip>
+  </div>
+);
+
+## Default
+
+<Canvas>
+  <Story name="Default">{Template.bind({})}</Story>
+</Canvas>

@@ -2,4 +2,8 @@ export * from "./Button";
 export * from "./Checkbox";
 export * from "./CodingExerciseCard";
 export * from "./Dialog";
+export * from "./FormControl";
+export * from "./Link";
 export * from "./Logo";
+export * from "./TextInput";
+export * from "./Tooltip";
