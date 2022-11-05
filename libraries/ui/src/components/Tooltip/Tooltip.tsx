@@ -36,8 +36,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   position,
 }) => {
   const classNameComposition = clsx(
-    "tooltip",
     {
+      tooltip: opened === true || opened === undefined,
       "tooltip-primary": type === TooltipType.primary,
       "tooltip-secondary": type === TooltipType.secondary,
       "tooltip-accent": type === TooltipType.accent,

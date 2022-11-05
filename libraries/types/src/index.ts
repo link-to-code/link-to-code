@@ -107,3 +107,19 @@ export interface InterviewRoomAdminSpace {
    */
   interviewRoomId: string;
 }
+
+/**
+ * The InterviewRoomLinks interface represents the links returned
+ * when a new interview room is created.
+ */
+export interface InterviewRoomLinks {
+  /**
+   * The guest link, to be sent to a candidate
+   */
+  guestLink: string;
+
+  /**
+   * The admin link, for interviewers only
+   */
+  adminLink: string;
+}

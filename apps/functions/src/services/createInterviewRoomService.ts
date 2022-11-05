@@ -1,4 +1,5 @@
 import { createInterviewRoomAdminSpaceModel, createInterviewRoomModel } from "@link-to-code/domain";
+import { InterviewRoomLinks } from "@link-to-code/types";
 import {
   CodingExerciseTemplatesRepository,
   InterviewRoomAdminSpacesRepository,
@@ -7,17 +8,14 @@ import {
 
 import { NotFoundError } from "../utils/errors";
 
-export interface InterviewLinks {
-  guestLink: string;
-  adminLink: string;
-}
-
 /**
  * This service returns a new coding exercise creation link given a CodingExercise object.
  * @param {string} codingExerciseTemplateId
- * @return {Promise<InterviewLinks>} Returns the permalink for the provided coding exercise
+ * @return {Promise<InterviewRoomLinks>} Returns the permalink for the provided coding exercise
  */
-export async function createInterviewRoomService(codingExerciseTemplateId: string): Promise<InterviewLinks> {
+export async function createInterviewRoomService(
+  codingExerciseTemplateId: string
+): Promise<InterviewRoomLinks> {
   const codingExerciseTemplateModel = await CodingExerciseTemplatesRepository.getCodingExerciseTemplateById(
     codingExerciseTemplateId
   );

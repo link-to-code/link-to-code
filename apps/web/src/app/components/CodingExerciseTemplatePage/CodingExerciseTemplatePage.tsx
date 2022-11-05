@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { Logo, LogoSize, CodingExerciseCard } from "@link-to-code/ui";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 
+import { CreateInterviewRoomDialog } from "../../../interviewRoom/components";
 import { useGetCodingExerciseTemplateById } from "../../../codingExerciseTemplate/queries";
 
 interface PageParams extends Record<string, string> {
   codingExerciseTemplateId: string;
 }
 
-const CodingExerciseTemplatePage: React.FC = () => {
+export const CodingExerciseTemplatePage: React.FC = () => {
   const { codingExerciseTemplateId } = useParams<PageParams>();
   const { isLoading, isError, isSuccess, error, data } =
     useGetCodingExerciseTemplateById(codingExerciseTemplateId);
@@ -46,11 +47,9 @@ const CodingExerciseTemplatePage: React.FC = () => {
           name={data?.codingExercise.name || ""}
           description={data?.codingExercise.description || ""}
         >
-          <button className="btn btn-block btn-primary">Create interview room</button>
+          <CreateInterviewRoomDialog codingExerciseTemplateId={data?.id} />
         </CodingExerciseCard>
       </section>
     </main>
   );
 };
-
-export default CodingExerciseTemplatePage;

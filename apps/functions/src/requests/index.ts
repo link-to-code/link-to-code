@@ -15,6 +15,7 @@ const app = express();
 app.use(express.json());
 
 if (process.env.NODE_ENV !== "production") {
+  functions.logger.info("Using development cors policies.");
   app.use(cors({ origin: true }));
 }
 

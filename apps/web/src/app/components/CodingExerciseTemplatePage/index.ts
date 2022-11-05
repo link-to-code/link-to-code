@@ -1,1 +1,1 @@
-export { default } from "./CodingExerciseTemplatePage";
+export * from "./CodingExerciseTemplatePage";

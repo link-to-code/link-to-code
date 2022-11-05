@@ -1,9 +1,10 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { z } from "zod";
 
+import { InterviewRoomLinks } from "@link-to-code/types";
 import { codingExerciseTemplateSchema } from "@link-to-code/types/validators";
 
-import { createInterviewRoomService, InterviewLinks } from "../services/index";
+import { createInterviewRoomService } from "../services/index";
 import { validateInput } from "./middlewares/index";
 
 interface RequestBody {
@@ -22,7 +23,7 @@ router.post(
   validateInput(requestBodySchema),
   async (
     request: Request<unknown, unknown, RequestBody>,
-    response: Response<InterviewLinks>,
+    response: Response<InterviewRoomLinks>,
     next: NextFunction
   ) => {
     try {

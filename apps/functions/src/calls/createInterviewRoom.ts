@@ -3,9 +3,10 @@
 import * as functions from "firebase-functions";
 import { z } from "zod";
 
+import { InterviewRoomLinks } from "@link-to-code/types";
 import { codingExerciseTemplateSchema } from "@link-to-code/types/validators";
 
-import { createInterviewRoomService, InterviewLinks } from "../services";
+import { createInterviewRoomService } from "../services";
 import { validateInputBody, handleCallError } from "../utils/index";
 
 interface InputBody {
@@ -17,7 +18,7 @@ const inputBodySchema = z.object({
 });
 
 export const createInterviewRoom = functions.https.onCall(
-  async (data: InputBody): Promise<InterviewLinks | undefined> => {
+  async (data: InputBody): Promise<InterviewRoomLinks | undefined> => {
     try {
       validateInputBody(data, inputBodySchema);
       const output = await createInterviewRoomService(data.codingExerciseTemplateId);
