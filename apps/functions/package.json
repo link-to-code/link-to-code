@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
-    "build": "tsc --clean",
+    "build": "tsc --build --clean && tsc",
     "build:watch": "tsc",
     "emulator:start": "firebase emulators:start --only functions,firestore,storage",
     "serve": "concurrently \"npm:build:watch\" \"npm:emulator:start\"",
