@@ -1,0 +1,32 @@
+{
+  "name": "@link-to-code/cli",
+  "version": "0.1.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc --build --clean && tsc",
+    "build:watch": "tsc",
+    "start": "nodemon"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "@link-to-code/domain": "workspace:*",
+    "commander": "~9.4.1",
+    "inquirer": "^8.0.0"
+  },
+  "devDependencies": {
+    "@link-to-code/types": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "~8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint": "^8.9.0",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.5.4",
+    "ts-node": "~10.9.1",
+    "@types/inquirer": "^8.0.0"
+  }
+}
