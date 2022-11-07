@@ -477,6 +477,11 @@
       "tags": ["domain"]
     },
     {
+      "packageName": "@link-to-code/editor",
+      "projectFolder": "libraries/editor",
+      "tags": ["editor"]
+    },
+    {
       "packageName": "@link-to-code/functions",
       "projectFolder": "apps/functions",
       "reviewCategory": "production",

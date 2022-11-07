@@ -1,0 +1,28 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Editor } from "../src/components/Editor";
+
+export const testFile = `
+describe('add', () => {
+test('Commutative Law of Addition', () => {
+expect(Math.floor(5.95)).toBe(5);
+});
+});`;
+
+export const customFile = {
+  "/App.tsx": "export default () => 'foo'",
+  "/App.test.ts": testFile,
+  "/style.css": "css",
+};
+
+<Meta title="Editor/Default" component={Editor} />
+
+<Canvas>
+  <Story
+    name="Editor/Default"
+    args={{
+      label: "Unchecked",
+    }}
+  >
+    {<Editor files={customFile} template="react-ts" showPanelTest showPanelPreview />}
+  </Story>
+</Canvas>
