@@ -184,6 +184,7 @@ importers:
       postcss: ~8.4.18
       react: ~18.2.0
       react-dom: ~18.2.0
+      react-split: ~2.0.14
       react-tabs: ~5.1.0
       storybook: ~6.5.13
       storybook-css-modules: ~1.0.8
@@ -197,6 +198,7 @@ importers:
       '@radix-ui/react-checkbox': 1.0.1_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-dialog': 1.0.2_knhnagtyfncgg2hpin7s37uixq
       clsx: 1.2.1
+      react-split: 2.0.14_react@18.2.0
       react-tabs: 5.1.0_react@18.2.0
     devDependencies:
       '@storybook/addon-actions': 6.5.13_biqbaboplfbrettd7655fr4n2y
@@ -17307,6 +17309,16 @@ packages:
       - webpack-plugin-serve
     dev: false
 
+  /react-split/2.0.14_react@18.2.0:
+    resolution: {integrity: sha512-bKWydgMgaKTg/2JGQnaJPg51T6dmumTWZppFgEbbY0Fbme0F5TuatAScCLaqommbGQQf/ZT1zaejuPDriscISA==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+      split.js: 1.6.5
+    dev: false
+
   /react-style-singleton/2.2.1_bbvjflvjoibwhtpmedigb26h6y:
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
@@ -18359,6 +18371,10 @@ packages:
     dependencies:
       extend-shallow: 3.0.2
     dev: true
+
+  /split.js/1.6.5:
+    resolution: {integrity: sha512-mPTnGCiS/RiuTNsVhCm9De9cCAUsrNFFviRbADdKiiV+Kk8HKp/0fWu7Kr8pi3/yBmsqLFHuXGT9UUZ+CNLwFw==}
+    dev: false
 
   /sprintf-js/1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}

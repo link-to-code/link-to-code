@@ -77,6 +77,7 @@
     "@radix-ui/react-checkbox": "~1.0.1",
     "@codesandbox/sandpack-react": "~1.17.0",
     "react-tabs": "~5.1.0",
-    "@monaco-editor/react": "~4.4.6"
+    "@monaco-editor/react": "~4.4.6",
+    "react-split": "~2.0.14"
   }
 }

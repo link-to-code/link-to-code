@@ -10,6 +10,7 @@ import {
   SandpackFiles,
   SandpackPredefinedTemplate,
 } from "@codesandbox/sandpack-react";
+import Split from "react-split";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
@@ -30,36 +31,48 @@ function EditorProvider({
 }: EditorProps) {
   return (
     <SandpackProvider files={files} theme={theme} template={template}>
-      <SandpackLayout>
-        <MonacoEditor />
+      <Split
+        sizes={[50, 50]}
+        minSize={400}
+        gutterSize={7}
+        gutterAlign="center"
+        snapOffset={30}
+        dragInterval={10}
+        direction="horizontal"
+        cursor="col-resize"
+        className="flex flex-row"
+      >
+        <div>
+          <MonacoEditor />
+        </div>
         {(showPanelTest || showPanelPreview) && (
-          <div className="h-screen w-1/4 resize">
+          <div>
             <Tabs
-              className={"tabs tabs-boxed"}
+              className={"tabs"}
               forceRenderTabPanel
               disabledTabClassName="tab"
               selectedTabClassName="tab-active"
             >
-              <div className="flex flex-col">
-                <div className="item w-screen">
+              <div className="flex flex-col w-full h-full">
+                <div className="item w-full">
                   <TabList>
                     <Tab className={"tab"}>Preview</Tab>
                     <Tab className={"tab"}>Tests</Tab>
                   </TabList>
                 </div>
-                <div className="item w-screen h-screen">
+                <div className="item">
                   <TabPanel>
-                    <SandpackPreview className="w-screen h-screen" />
+                    <SandpackPreview showOpenInCodeSandbox={false} />
                   </TabPanel>
                   <TabPanel>
-                    <SandpackTests className="w-screen h-screen" />
+                    <SandpackTests watchMode />
                   </TabPanel>
                 </div>
               </div>
             </Tabs>
           </div>
         )}
-      </SandpackLayout>
+      </Split>
     </SandpackProvider>
   );
 }

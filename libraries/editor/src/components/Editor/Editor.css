@@ -49,3 +49,26 @@
 .react-tabs__tab-panel--selected {
     display: block;
 }
+
+.gutter {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter {
+    background-color: rgba(57, 143, 255, 0);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transition: 0.4s;
+}
+.gutter:hover {
+    background-color: rgb(57, 143, 255);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
+}
