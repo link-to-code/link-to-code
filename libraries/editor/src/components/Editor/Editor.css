@@ -4,8 +4,7 @@
 
 .react-tabs__tab-list {
     border-bottom: 0px solid rgb(100, 0, 0);
-    margin: 0 0 10px;
-    padding: 0;
+    padding: 4px;
 }
 
 .react-tabs__tab {
@@ -44,6 +43,7 @@
 
 .react-tabs__tab-panel {
     display: none;
+    height: 100%;
 }
 
 .react-tabs__tab-panel--selected {

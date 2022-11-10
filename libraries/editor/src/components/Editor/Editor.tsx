@@ -3,7 +3,6 @@ import MonacoEditor from "./MonacoEditor";
 import "./Editor.css";
 import {
   SandpackProvider,
-  SandpackLayout,
   SandpackPreview,
   SandpackTests,
   SandpackThemeProp,
@@ -48,7 +47,7 @@ function EditorProvider({
         {(showPanelTest || showPanelPreview) && (
           <div>
             <Tabs
-              className={"tabs"}
+              className="tabs h-full"
               forceRenderTabPanel
               disabledTabClassName="tab"
               selectedTabClassName="tab-active"
@@ -56,16 +55,18 @@ function EditorProvider({
               <div className="flex flex-col w-full h-full">
                 <div className="item w-full">
                   <TabList>
-                    <Tab className={"tab"}>Preview</Tab>
-                    <Tab className={"tab"}>Tests</Tab>
+                    <Tab disabledClassName="" className="tab">
+                      Preview
+                    </Tab>
+                    <Tab className="tab">Tests</Tab>
                   </TabList>
                 </div>
-                <div className="item">
+                <div className="item flex-1">
                   <TabPanel>
-                    <SandpackPreview showOpenInCodeSandbox={false} />
+                    <SandpackPreview className="h-full" showOpenInCodeSandbox={false} />
                   </TabPanel>
                   <TabPanel>
-                    <SandpackTests watchMode />
+                    <SandpackTests className="h-full" watchMode />
                   </TabPanel>
                 </div>
               </div>
