@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "link-to-code editor package",
   "scripts": {
-    "start": "start-storybook -p 6007",
-    "build": "rm -rf ./lib && tsc --build --clean && tsc && pnpm build:assets",
+    "start": "start-storybook -p 6006",
+    "build": "rm -rf ./lib && tsc && pnpm build:assets",
     "build:assets": "copyfiles -u 1 src/**/*.module.css src/assets/* lib",
     "build:watch": "pnpm run build"
   },
@@ -19,12 +19,6 @@
       "import": "./lib/index.js",
       "require": "./lib/index.js",
       "default": "./lib/index.js"
-    },
-    "./config/tailwind": {
-      "default": "./config/tailwind.js"
-    },
-    "./config/daisyui": {
-      "default": "./config/daisyui.js"
     }
   },
   "keywords": [],
