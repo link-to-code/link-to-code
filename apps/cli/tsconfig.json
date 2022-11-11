@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "Node16",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "Node16"
+  },
+  "compileOnSave": true,
+  "include": ["src"]
+}
