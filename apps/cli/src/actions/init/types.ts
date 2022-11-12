@@ -1,5 +1,3 @@
-import { CodingExercise } from "@link-to-code/types";
-
 export type InitOptions = {
   filePath?: string;
   name: string;
@@ -7,4 +5,3 @@ export type InitOptions = {
   description?: string;
   dryRun?: boolean;
 };
-export type FileContent = Omit<CodingExercise, "files">;
