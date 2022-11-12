@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "resolveJsonModule": false // disable resolution of json file to avoid package.json in lib remember to copy them in lib folder after build
+  },
+  "files": ["src/types/declarations.d.ts"]
+}
