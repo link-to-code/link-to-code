@@ -2,23 +2,23 @@ import path from "path";
 
 import inquirer from "inquirer";
 
+import { CONFIG_FILE_NAME } from "../../config/constants";
+import { ExerciseSettingsFile } from "../../types";
 import fileExists from "../../utils/fileExists";
 import writeFile from "../../utils/writeFile";
-import { FileContent, InitOptions } from "./types";
+import { InitOptions } from "./types";
 
 const ENTRY_DEFAULT_CONTENT = "";
 
-export const FILE_NAME = "link-to-code.json";
-
-const getFilePath = () => path.join(process.cwd(), FILE_NAME);
+export const getDefaultConfigFilePath = () => path.join(process.cwd(), CONFIG_FILE_NAME);
 export async function init({
   name,
   entry,
   description,
-  filePath = getFilePath(),
+  filePath = getDefaultConfigFilePath(),
   dryRun = false,
 }: InitOptions) {
-  const content: FileContent = { name, description, entry };
+  const content: ExerciseSettingsFile = { name, description, entry };
 
   const exists = await fileExists(entry);
   if (!exists) {
