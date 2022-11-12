@@ -17,4 +17,12 @@ program
   .option("--dry-run", "Simulate init")
   .action(actions.init);
 
+program
+  .command("deploy")
+  .description("Deploy exercise template.")
+  .requiredOption("-u, --api-url <string>", "The API url of the firebase functions")
+  .option("-f, --file-path <string>", "The file path where to find the settings")
+  .option("--dry-run", "Simulate init")
+  .action(actions.deploy);
+
 program.parse();
