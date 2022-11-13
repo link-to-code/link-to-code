@@ -1,8 +1,8 @@
 import inquirer from "inquirer";
 
-import { ExerciseSettingsFile } from "../../types/index";
-import { fileExists, readFile, writeFile } from "../../utils/index";
-import { getDefaultConfigFilePath } from "../init/index";
+import { writeFile } from "../../utils";
+import getSettings from "../getSettings";
+import { getDefaultConfigFilePath } from "../init";
 import getExerciseFiles from "./getExerciseFiles";
 import publishExercise from "./publishExercise";
 import { PublishOptions } from "./types";
@@ -12,22 +12,7 @@ export async function publish({
   filePath = getDefaultConfigFilePath(),
   dryRun = false,
 }: PublishOptions) {
-  const exists = await fileExists(filePath);
-  if (!exists) {
-    console.error("Settings file not found. Please run init command before the publish.", { filePath });
-    process.exit(1);
-  }
-
-  const configFileContent = await readFile(filePath);
-
-  let settings: ExerciseSettingsFile;
-  try {
-    settings = JSON.parse(configFileContent);
-  } catch (e) {
-    console.error("Unable to parse settings file content.", { filePath }, e);
-    process.exit(1);
-  }
-
+  const settings = await getSettings(filePath);
   const files = await getExerciseFiles(filePath);
 
   const { token } = await inquirer.prompt<{ token: string }>([
