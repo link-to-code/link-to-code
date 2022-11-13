@@ -6,6 +6,7 @@ import { CONFIG_FILE_NAME } from "../../config/constants";
 import { ExerciseSettingsFile } from "../../types";
 import fileExists from "../../utils/fileExists";
 import writeFile from "../../utils/writeFile";
+import checkApiUrl from "./checkApiUrl";
 import { InitOptions } from "./types";
 
 const ENTRY_DEFAULT_CONTENT = "";
@@ -15,10 +16,14 @@ export async function init({
   name,
   entry,
   description,
+  apiUrl,
   filePath = getDefaultConfigFilePath(),
   dryRun = false,
 }: InitOptions) {
-  const content: ExerciseSettingsFile = { name, description, entry };
+  if (dryRun) console.info("Checking api url", { apiUrl });
+  await checkApiUrl(apiUrl, dryRun);
+
+  const content: ExerciseSettingsFile = { name, description, entry, apiUrl };
 
   const exists = await fileExists(entry);
   if (!exists) {
