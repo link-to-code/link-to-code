@@ -1,6 +1,6 @@
 # CLI
 
-Command line interface to manage exercises: init, deploy, test etc...
+Command line interface to manage exercises: init, publish, test etc...
 
 ## Installation
 ```

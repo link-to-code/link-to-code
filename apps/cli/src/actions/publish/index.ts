@@ -1,20 +1,20 @@
 import inquirer from "inquirer";
 
-import { ExerciseSettingsFile } from "../../types";
-import { fileExists, readFile, writeFile } from "../../utils";
-import { getDefaultConfigFilePath } from "../init";
-import deployExercise from "./deployExercise";
+import { ExerciseSettingsFile } from "../../types/index";
+import { fileExists, readFile, writeFile } from "../../utils/index";
+import { getDefaultConfigFilePath } from "../init/index";
 import getExerciseFiles from "./getExerciseFiles";
-import { DeployOptions } from "./types";
+import publishExercise from "./publishExercise";
+import { PublishOptions } from "./types";
 
-export async function deploy({
+export async function publish({
   apiUrl,
   filePath = getDefaultConfigFilePath(),
   dryRun = false,
-}: DeployOptions) {
+}: PublishOptions) {
   const exists = await fileExists(filePath);
   if (!exists) {
-    console.error("Settings file not found. Please run init command before the deploy.", { filePath });
+    console.error("Settings file not found. Please run init command before the publish.", { filePath });
     process.exit(1);
   }
 
@@ -38,8 +38,8 @@ export async function deploy({
     },
   ]);
 
-  if (dryRun) console.info("Deplying exercise", { apiUrl, files });
-  const permaLink = await deployExercise({
+  if (dryRun) console.info("Publishing exercise", { apiUrl, files });
+  const permaLink = await publishExercise({
     dryRun,
     apiUrl,
     codingExercise: { ...settings, files },

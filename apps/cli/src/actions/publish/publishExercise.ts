@@ -3,7 +3,7 @@ import axios from "axios";
 
 const formatApiUrl = (apiUrl: string) => (!apiUrl.endsWith("/") ? apiUrl : apiUrl.slice(0, -1));
 
-export type DeployExerciseOptions = {
+export type PublishExerciseOptions = {
   dryRun: boolean;
   apiUrl: string;
   codingExercise: CodingExercise;
@@ -15,7 +15,7 @@ export default async function ({
   apiUrl,
   codingExercise,
   token,
-}: DeployExerciseOptions): Promise<string | null> {
+}: PublishExerciseOptions): Promise<string | null> {
   if (dryRun) return null;
   try {
     const { data } = await axios.post<{ permalink: string }>(
@@ -39,7 +39,7 @@ export default async function ({
       }
     }
 
-    console.error("Deploy exercise failed", { error: (e as Error).message });
+    console.error("Publish exercise failed", { error: (e as Error).message });
     return null;
   }
 }
