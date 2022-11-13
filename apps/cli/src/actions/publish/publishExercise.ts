@@ -1,7 +1,7 @@
 import { CodingExercise } from "@link-to-code/types";
 import axios from "axios";
 
-const formatApiUrl = (apiUrl: string) => (!apiUrl.endsWith("/") ? apiUrl : apiUrl.slice(0, -1));
+import { formatApiUrl } from "../../utils";
 
 export type PublishExerciseOptions = {
   dryRun: boolean;
@@ -19,7 +19,7 @@ export default async function ({
   if (dryRun) return null;
   try {
     const { data } = await axios.post<{ permalink: string }>(
-      `${formatApiUrl(apiUrl)}/coding-exercise-templates`,
+      `${formatApiUrl(apiUrl)}/api/coding-exercise-templates`,
       { codingExercise },
       {
         headers: { Authorization: `Bearer ${token}` },

@@ -7,11 +7,7 @@ import getExerciseFiles from "./getExerciseFiles";
 import publishExercise from "./publishExercise";
 import { PublishOptions } from "./types";
 
-export async function publish({
-  apiUrl,
-  filePath = getDefaultConfigFilePath(),
-  dryRun = false,
-}: PublishOptions) {
+export async function publish({ filePath = getDefaultConfigFilePath(), dryRun = false }: PublishOptions) {
   const settings = await getSettings(filePath);
   const files = await getExerciseFiles(filePath);
 
@@ -23,10 +19,10 @@ export async function publish({
     },
   ]);
 
-  if (dryRun) console.info("Publishing exercise", { apiUrl, files });
+  if (dryRun) console.info("Publishing exercise", { files });
   const permaLink = await publishExercise({
     dryRun,
-    apiUrl,
+    apiUrl: settings.apiUrl,
     codingExercise: { ...settings, files },
     token,
   });
