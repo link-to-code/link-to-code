@@ -2,7 +2,7 @@ import path from "path";
 
 import { CodingExercise } from "@link-to-code/types";
 
-import { readFile, scanDir } from "../../utils/index";
+import { readFile, scanDir } from "../../utils";
 
 const readonlyFiles = new Set(["README.md"]);
 export default async function (filePath: string): Promise<CodingExercise["files"]> {
