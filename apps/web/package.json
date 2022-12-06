@@ -20,7 +20,7 @@
   },
   "scripts": {
     "serve": "pnpm run build && firebase emulators:start --only hosting",
-    "start": "react-scripts start",
+    "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint .",
     "test": "react-scripts test",
