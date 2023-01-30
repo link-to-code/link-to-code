@@ -11,6 +11,9 @@
     "node": "16"
   },
   "main": "lib/index.js",
+  "bin": {
+    "@link-to-code/cli": "./bin/cli"
+  },
   "dependencies": {
     "@link-to-code/domain": "workspace:*",
     "commander": "~9.4.1",
